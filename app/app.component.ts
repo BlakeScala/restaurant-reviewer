@@ -15,10 +15,12 @@ import { Review } from './review.model';
     <restaurant-filter
       [childSpecialtyList] = "allSpecialties"
       (specialtySender) = "selectSpecialty($event)"
+      (ratingSender) = "selectRating($event)"
     ></restaurant-filter>
     <restaurant-list
       [childRestaurantList] = "allRestaurants"
       [specialtyFilter] = "selectedSpecialty"
+      [ratingFilter] = "selectedRating"
       [reviewList] = "allReviews"
       (editButtonSender)= "showDetails($event)"
     ></restaurant-list>
@@ -45,6 +47,7 @@ export class AppComponent {
 
   selectedRestaurant: Restaurant = null;
   selectedSpecialty: string = "All";
+  selectedRating: number = 0;
 
   showDetails(clickedRestaurant: Restaurant) {
     this.selectedRestaurant = clickedRestaurant;
@@ -63,6 +66,10 @@ export class AppComponent {
 
   selectSpecialty(childSelectedSpecialty: string) {
     this.selectedSpecialty = childSelectedSpecialty;
+  }
+
+  selectRating(childSelectedRating: number) {
+    this.selectedRating = childSelectedRating;
   }
 
 }
