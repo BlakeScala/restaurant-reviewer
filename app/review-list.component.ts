@@ -1,0 +1,43 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Restaurant } from './restaurant.model';
+import { Review } from './review.model';
+
+@Component ({
+  selector: 'review-list',
+  template: `
+    <div *ngIf="restaurant.reviews">
+      <div *ngFor="let currentReview of childReviewList">
+        <div *ngIf="currentReview.restaurantId == restaurant.id">
+          <p>Reviewer: {{ currentReview.reviewer }}</p>
+          <p>Wait Time: {{ currentReview.waitTime }} minutes</p>
+          <p>Rating: {{ currentReview.rating }}</p>
+          <p>Comments: {{ currentReview.description }}</p>
+        </div>
+      </div>
+      <button (click)="addReview(restaurant)">Add Review</button>
+    </div>
+    <new-review
+      [show] = "showReviewForm"
+      (clickSender) = "reviewDone($event)"
+      [restaurant] = "restaurant"
+    ></new-review>
+  `
+})
+
+export class ReviewListComponent {
+  @Input() restaurant: Restaurant;
+  @Input() childReviewList: Review[];
+  @Input() grandchildRestaurantList: Restaurant[];
+  @Output() clickSender = new EventEmitter();
+
+  showReviewForm: boolean = false;
+
+  addReview(selectedRestaurant: Restaurant) {
+    this.showReviewForm = true;
+  }
+
+  reviewDone(review: Review) {
+    this.showReviewForm = false;
+    this.childReviewList.push(review);
+  }
+}

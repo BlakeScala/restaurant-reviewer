@@ -10,6 +10,12 @@ import { Review } from './review.model';
         [restaurant] = "currentRestaurant"
       ></restaurant-display>
       <button (click) = "editButtonClicked(currentRestaurant)">Edit</button>
+      <button (click) = "seeReviews(currentRestaurant)">Reviews</button>
+      <review-list
+        [restaurant] = "currentRestaurant"
+        [childReviewList] = "reviewList"
+        [grandchildRestaurantList] = "childRestaurantList"
+      ></review-list>
     </div>
   `
 })
@@ -17,8 +23,14 @@ import { Review } from './review.model';
 export class RestaurantListComponent {
   @Input() childRestaurantList: Restaurant[];
   @Input() specialtyFilter: string;
+  @Input() reviewList: Review[];
   @Output() editButtonSender = new EventEmitter();
+
   editButtonClicked(restaurantToEdit: Restaurant) {
     this.editButtonSender.emit(restaurantToEdit);
+  }
+
+  seeReviews(clickedRestaurant: Restaurant) {
+    clickedRestaurant.reviews = true;
   }
 }

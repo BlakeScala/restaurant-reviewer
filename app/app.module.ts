@@ -8,6 +8,8 @@ import { RestaurantComponent} from './restaurant.component';
 import { EditRestaurantComponent } from './edit-restaurant.component';
 import { RestaurantFilterComponent } from './restaurant-filter.component';
 import { SpecialtyPipe } from './specialty.pipe';
+import { ReviewListComponent } from './review-list.component';
+import { NewReviewComponent } from './new-review.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import { SpecialtyPipe } from './specialty.pipe';
     EditRestaurantComponent,
     RestaurantFilterComponent,
     SpecialtyPipe,
+    ReviewListComponent,
+    NewReviewComponent,
    ],
   bootstrap:    [ AppComponent ]
 })
