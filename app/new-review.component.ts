@@ -17,13 +17,18 @@ import { Review } from './review.model';
       </div>
       <div class = "form-group">
         <label for="rating">Rating(1-5)</label>
-        <input #rating type="number" class="form-control">
+        <input #rating type="text" class="form-control">
       </div>
       <div class = "form-group">
         <label for="description">Comments</label>
         <input #description type="text" class="form-control">
       </div>
-      <button (click)="addReview(reviewer.value, waitTime.value, rating.value, description.value, restaurant.id)">Done</button>
+      <button (click)="addReview(reviewer.value, waitTime.value, rating.value, description.value, restaurant.id);
+        reviewer.value = '';
+        waitTime.value = '';
+        rating.value = '';
+        description.value = '';
+      ">Done</button>
     </div>
   `
 })
@@ -33,8 +38,14 @@ export class NewReviewComponent {
   @Input() show : boolean;
   @Input() restaurant: Restaurant;
 
-  addReview(reviewer: string, waitTime: number, rating: number, description: string, id: number) {
-    var reviewToAdd: Review = new Review(reviewer, waitTime, rating, description, id);
-    this.clickSender.emit(reviewToAdd);
+  addReview(reviewer: string, waitTime: string, rating: string, description: string, id: number) {
+    if(reviewer == "" || waitTime == "" || rating == "" || description == "") {
+      alert("Please fill out all of the review inputs!");
+    } else {
+      var numWaitTime: number = parseInt(waitTime);
+      var numRating: number = parseInt(rating);
+      var reviewToAdd: Review = new Review(reviewer, numWaitTime, numRating, description, id);
+      this.clickSender.emit(reviewToAdd);
+    }
   }
 }

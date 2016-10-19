@@ -10,6 +10,7 @@ import { RestaurantFilterComponent } from './restaurant-filter.component';
 import { SpecialtyPipe } from './specialty.pipe';
 import { ReviewListComponent } from './review-list.component';
 import { NewReviewComponent } from './new-review.component';
+import { ReviewDisplayComponent } from './review.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { NewReviewComponent } from './new-review.component';
     SpecialtyPipe,
     ReviewListComponent,
     NewReviewComponent,
+    ReviewDisplayComponent,
    ],
   bootstrap:    [ AppComponent ]
 })

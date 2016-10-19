@@ -8,10 +8,9 @@ import { Review } from './review.model';
     <div *ngIf="restaurant.reviews">
       <div *ngFor="let currentReview of childReviewList">
         <div *ngIf="currentReview.restaurantId == restaurant.id">
-          <p>Reviewer: {{ currentReview.reviewer }}</p>
-          <p>Wait Time: {{ currentReview.waitTime }} minutes</p>
-          <p>Rating: {{ currentReview.rating }}</p>
-          <p>Comments: {{ currentReview.description }}</p>
+          <review-display
+            [review] = "currentReview"
+          ></review-display>
         </div>
       </div>
       <button (click)="addReview(restaurant)">Add Review</button>
