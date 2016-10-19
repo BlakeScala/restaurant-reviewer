@@ -11,8 +11,13 @@ import { Review } from './review.model';
       [childRestaurantList] = "allRestaurants"
       (newRestaurantSender) = "addRestaurant($event)"
     ></new-restaurant>
+    <restaurant-filter
+      [childSpecialtyList] = "allSpecialties"
+      (specialtySender) = "selectSpecialty($event)"
+    ></restaurant-filter>
     <restaurant-list
       [childRestaurantList] = "allRestaurants"
+      [specialtyFilter] = "selectedSpecialty"
       (editButtonSender)= "showDetails($event)"
     ></restaurant-list>
     <edit-restaurant
@@ -35,6 +40,7 @@ export class AppComponent {
   allSpecialties: string[] = ["Pizza", "Thai", "Burritos"];
 
   selectedRestaurant: Restaurant = null;
+  selectedSpecialty: string = "All";
 
   showDetails(clickedRestaurant: Restaurant) {
     this.selectedRestaurant = clickedRestaurant;
@@ -49,6 +55,10 @@ export class AppComponent {
     if(this.allSpecialties.indexOf(newRestaurantFromChild.specialty) === -1) {
       this.allSpecialties.push(newRestaurantFromChild.specialty);
     }
+  }
+
+  selectSpecialty(childSelectedSpecialty: string) {
+    this.selectedSpecialty = childSelectedSpecialty;
   }
 
 }

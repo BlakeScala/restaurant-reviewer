@@ -30,7 +30,7 @@ import { Review } from './review.model';
     </div>
     <div class="form-group">
       <label for="picture">Enter a picture URL</label>
-      <input #picture type="text" class="form-control" value="null">
+      <input #picture type="text" class="form-control">
     </div>
     <button (click)="
       addClicked(restaurantName.value, specialty.value, address.value, cost.value, childRestaurantList.length, picture.value);
