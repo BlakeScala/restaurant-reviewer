@@ -12,6 +12,7 @@ import { ReviewListComponent } from './review-list.component';
 import { NewReviewComponent } from './new-review.component';
 import { ReviewDisplayComponent } from './review.component';
 import { RatingPipe } from './rating.pipe';
+import { CostPipe } from './cost.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { RatingPipe } from './rating.pipe';
     ReviewListComponent,
     NewReviewComponent,
     ReviewDisplayComponent,
-    RatingPipe
+    RatingPipe,
+    CostPipe,
    ],
   bootstrap:    [ AppComponent ]
 })

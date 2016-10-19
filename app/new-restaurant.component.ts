@@ -21,11 +21,11 @@ import { Review } from './review.model';
     <div class="form-group">
       <label for="cost">Cost</label>
       <select #cost>
-        <option value="$">$</option>
-        <option value="$$">$$</option>
-        <option value="$$$">$$$</option>
-        <option value="$$$$">$$$$</option>
-        <option value="$$$$$">$$$$$</option>
+        <option value="1">$</option>
+        <option value="2">$$</option>
+        <option value="3">$$$</option>
+        <option value="4">$$$$</option>
+        <option value="5">$$$$$</option>
       </select>
     </div>
     <div class="form-group">
@@ -47,7 +47,8 @@ export class NewRestaurantComponent {
   @Output() newRestaurantSender = new EventEmitter();
   @Input() childRestaurantList: Restaurant[];
   addClicked(name: string, specialty: string, address: string, cost: string, id: number, picture: string) {
-    var newRestaurantToAdd: Restaurant = new Restaurant(name, specialty, address, cost, id, picture);
+    var numCost = parseInt(cost);
+    var newRestaurantToAdd: Restaurant = new Restaurant(name, specialty, address, numCost, id, picture);
     this.newRestaurantSender.emit(newRestaurantToAdd);
   }
 }

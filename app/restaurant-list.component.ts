@@ -5,7 +5,7 @@ import { Review } from './review.model';
 @Component ({
   selector: 'restaurant-list',
   template: `
-    <div *ngFor = "let currentRestaurant of childRestaurantList | specialty:specialtyFilter | rating:ratingFilter">
+    <div *ngFor = "let currentRestaurant of childRestaurantList | specialty:specialtyFilter | rating:ratingFilter | cost:costFilter">
       <restaurant-display
         [restaurant] = "currentRestaurant"
       ></restaurant-display>
@@ -24,6 +24,7 @@ export class RestaurantListComponent {
   @Input() childRestaurantList: Restaurant[];
   @Input() specialtyFilter: string;
   @Input() ratingFilter: number;
+  @Input() costFilter: number;
   @Input() reviewList: Review[];
   @Output() editButtonSender = new EventEmitter();
 

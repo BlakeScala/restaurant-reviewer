@@ -16,11 +16,13 @@ import { Review } from './review.model';
       [childSpecialtyList] = "allSpecialties"
       (specialtySender) = "selectSpecialty($event)"
       (ratingSender) = "selectRating($event)"
+      (costSender) = "selectCost($event)"
     ></restaurant-filter>
     <restaurant-list
       [childRestaurantList] = "allRestaurants"
       [specialtyFilter] = "selectedSpecialty"
       [ratingFilter] = "selectedRating"
+      [costFilter] = "selectedCost"
       [reviewList] = "allReviews"
       (editButtonSender)= "showDetails($event)"
     ></restaurant-list>
@@ -34,10 +36,10 @@ import { Review } from './review.model';
 
 export class AppComponent {
   allRestaurants: Restaurant[] = [
-    new Restaurant("Joe's Pizza", "Pizza", "1234 N 15th", "$$", 0, "https://s3-media3.fl.yelpcdn.com/bphoto/p3_DBtzBdy82bNB5iog7jQ/o.jpg"),
-    new Restaurant("Augustine's Pizza", "Pizza", "132 Croton Ave.", "$$$$", 1, "https://i.ytimg.com/vi/70R2DNL4EmQ/maxresdefault.jpg"),
-    new Restaurant("Nong's Khao Man Gai", "Thai", "609 SE Ankeny St, Suite C", "$$$$", 2,  "http://pica.org/wp-content/uploads/2012/09/TBA12_Nongs_960.jpg"),
-    new Restaurant("Fuego Burrito", "Burritos", "Many Locations", "$$$", 3, "http://roaminghunger.com/img/trucks/original/5882/56b10981-7d64-4b3e-9c8a-4c5246204482.jpg")
+    new Restaurant("Joe's Pizza", "Pizza", "1234 N 15th", 2, 0, "https://s3-media3.fl.yelpcdn.com/bphoto/p3_DBtzBdy82bNB5iog7jQ/o.jpg"),
+    new Restaurant("Augustine's Pizza", "Pizza", "132 Croton Ave.", 4, 1, "https://i.ytimg.com/vi/70R2DNL4EmQ/maxresdefault.jpg"),
+    new Restaurant("Nong's Khao Man Gai", "Thai", "609 SE Ankeny St, Suite C", 4, 2,  "http://pica.org/wp-content/uploads/2012/09/TBA12_Nongs_960.jpg"),
+    new Restaurant("Fuego Burrito", "Burritos", "Many Locations", 3, 3, "http://roaminghunger.com/img/trucks/original/5882/56b10981-7d64-4b3e-9c8a-4c5246204482.jpg")
   ];
 
   allReviews: Review[] = [
@@ -48,6 +50,7 @@ export class AppComponent {
   selectedRestaurant: Restaurant = null;
   selectedSpecialty: string = "All";
   selectedRating: number = 0;
+  selectedCost: number = 5;
 
   showDetails(clickedRestaurant: Restaurant) {
     this.selectedRestaurant = clickedRestaurant;
@@ -70,6 +73,10 @@ export class AppComponent {
 
   selectRating(childSelectedRating: number) {
     this.selectedRating = childSelectedRating;
+  }
+
+  selectCost(childSelectedCost: number) {
+    this.selectedCost = childSelectedCost;
   }
 
 }
