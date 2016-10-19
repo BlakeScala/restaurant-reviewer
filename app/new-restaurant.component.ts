@@ -46,9 +46,8 @@ import { Review } from './review.model';
 export class NewRestaurantComponent {
   @Output() newRestaurantSender = new EventEmitter();
   @Input() childRestaurantList: Restaurant[];
-  addClicked(restaurantName: string, specialty: string, address: string, cost: string, id: number, picture: string) {
+  addClicked(name: string, specialty: string, address: string, cost: string, id: number, picture: string) {
     var newRestaurantToAdd: Restaurant = new Restaurant(name, specialty, address, cost, id, picture);
     this.newRestaurantSender.emit(newRestaurantToAdd);
-    console.log(id);
   }
 }

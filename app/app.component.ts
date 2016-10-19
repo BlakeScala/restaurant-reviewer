@@ -15,6 +15,10 @@ import { Review } from './review.model';
       [childRestaurantList] = "allRestaurants"
       (editButtonSender)= "showDetails($event)"
     ></restaurant-list>
+    <edit-restaurant
+      [childSelectedRestaurant] = "selectedRestaurant"
+      (clickSender) = "finishedEditing()"
+    ></edit-restaurant>
   </div>
   `
 })

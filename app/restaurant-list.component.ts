@@ -18,6 +18,6 @@ export class RestaurantListComponent {
   @Input() childRestaurantList: Restaurant[];
   @Output() editButtonSender = new EventEmitter();
   editButtonClicked(restaurantToEdit: Restaurant) {
-    editButtonSender.emit(restaurantToEdit);
+    this.editButtonSender.emit(restaurantToEdit);
   }
 }
