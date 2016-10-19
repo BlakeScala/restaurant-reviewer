@@ -11,6 +11,7 @@ import { Review } from './review.model';
       [childRestaurantList] = "allRestaurants"
       (newRestaurantSender) = "addRestaurant($event)"
     ></new-restaurant>
+    <br><br>
     <restaurant-filter
       [childSpecialtyList] = "allSpecialties"
       (specialtySender) = "selectSpecialty($event)"

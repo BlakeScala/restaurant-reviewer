@@ -33,4 +33,5 @@ export class RestaurantListComponent {
   seeReviews(clickedRestaurant: Restaurant) {
     clickedRestaurant.reviews = true;
   }
+
 }

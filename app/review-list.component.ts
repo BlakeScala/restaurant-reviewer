@@ -38,5 +38,8 @@ export class ReviewListComponent {
   reviewDone(review: Review) {
     this.showReviewForm = false;
     this.childReviewList.push(review);
+    this.restaurant.ratingsArray.push(review.rating);
+    console.log(this.restaurant.ratingsArray);
+    this.restaurant.calculateAverageRating();
   }
 }
