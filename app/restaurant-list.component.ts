@@ -6,12 +6,18 @@ import { Review } from './review.model';
   selector: 'restaurant-list',
   template: `
     <div *ngFor = "let currentRestaurant of childRestaurantList | specialty:specialtyFilter | rating:ratingFilter | cost:costFilter" class="well restaurant-list">
-      <img id="restaurant-image" class="img-responsive" [src]="currentRestaurant.picture">
-      <restaurant-display
-        [restaurant] = "currentRestaurant"
-      ></restaurant-display>
-      <button class ="btn btn-warning" (click) = "editButtonClicked(currentRestaurant)">Edit</button>
-      <button class = "btn btn-primary" (click) = "seeReviews(currentRestaurant)">Reviews</button>
+      <div class = "row">
+        <div class = "col-md-6 display">
+          <restaurant-display
+            [restaurant] = "currentRestaurant"
+          ></restaurant-display>
+          <button class ="btn" (click) = "editButtonClicked(currentRestaurant)">Edit</button>
+          <button class ="btn" (click) = "seeReviews(currentRestaurant)">Reviews</button>
+        </div>
+        <div class ="col-md-6">
+          <img id="restaurant-image" class="img-responsive" [src]="currentRestaurant.picture">
+        </div>
+      </div>
       <review-list
         [restaurant] = "currentRestaurant"
         [childReviewList] = "reviewList"

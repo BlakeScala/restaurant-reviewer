@@ -32,7 +32,7 @@ import { Restaurant } from './restaurant.model';
         <label for="picture">Enter a picture URL</label>
         <input [(ngModel)]="childSelectedRestaurant.picture" type="text" class="form-control" value="null">
       </div>
-      <button class="btn btn-danger"(click)="editDone()">Done</button>
+      <button class="btn" id="done" (click)="editDone()">Done</button>
     </div>
   `
 })

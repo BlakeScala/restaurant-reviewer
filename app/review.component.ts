@@ -5,7 +5,7 @@ import { Review } from './review.model';
   selector: 'review-display',
   template: `
   <hr>
-  <div ng-init="review.setStarRating()">
+  <div ng-init="review.setStarRating()" id="review-display">
     <h4>Reviewer: {{ review.reviewer }}</h4>
     <p>Wait Time: {{ review.waitTime }} minutes</p>
     <p>Rating: {{ review.starRating }}</p>

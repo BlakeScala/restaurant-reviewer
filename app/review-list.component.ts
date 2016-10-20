@@ -13,8 +13,11 @@ import { Review } from './review.model';
           ></review-display>
         </div>
       </div>
-      <button class="btn btn-success" (click)="addReview(restaurant)">Add Review</button>
-      <button class="btn btn-danger" (click)="doneReview(restaurant)">Hide Reviews</button>
+      <div class = "reviewButtons">
+        <hr>
+        <button class="btn" (click)="addReview(restaurant)">Add Review</button>
+        <button class="btn" (click)="doneReview(restaurant)">Hide Reviews</button>
+      </div>
     </div>
     <new-review
       [show] = "showReviewForm"
