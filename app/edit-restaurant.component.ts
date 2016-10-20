@@ -21,11 +21,11 @@ import { Restaurant } from './restaurant.model';
       <div class="form-group">
         <label for="cost">Cost</label>
         <select [(ngModel)]="childSelectedRestaurant.cost">
-          <option value="$">$</option>
-          <option value="$$">$$</option>
-          <option value="$$$">$$$</option>
-          <option value="$$$$">$$$$</option>
-          <option value="$$$$$">$$$$$</option>
+          <option value="1">$</option>
+          <option value="2">$$</option>
+          <option value="3">$$$</option>
+          <option value="4">$$$$</option>
+          <option value="5">$$$$$</option>
         </select>
       </div>
       <div class="form-group">

@@ -14,6 +14,7 @@ import { Review } from './review.model';
         </div>
       </div>
       <button (click)="addReview(restaurant)">Add Review</button>
+      <button (click)="doneReview(restaurant)">Hide Reviews</button>
     </div>
     <new-review
       [show] = "showReviewForm"
@@ -26,7 +27,6 @@ import { Review } from './review.model';
 export class ReviewListComponent {
   @Input() restaurant: Restaurant;
   @Input() childReviewList: Review[];
-  @Input() grandchildRestaurantList: Restaurant[];
   @Output() clickSender = new EventEmitter();
 
   showReviewForm: boolean = false;
@@ -41,5 +41,9 @@ export class ReviewListComponent {
     this.restaurant.ratingsArray.push(review.rating);
     console.log(this.restaurant.ratingsArray);
     this.restaurant.calculateAverageRating();
+  }
+
+  doneReview(selectedRestaurant: Restaurant) {
+    selectedRestaurant.reviews = false;
   }
 }

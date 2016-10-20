@@ -14,7 +14,6 @@ import { Review } from './review.model';
       <review-list
         [restaurant] = "currentRestaurant"
         [childReviewList] = "reviewList"
-        [grandchildRestaurantList] = "childRestaurantList"
       ></review-list>
     </div>
   `
