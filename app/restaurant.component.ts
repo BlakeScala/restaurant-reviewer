@@ -4,12 +4,12 @@ import { Restaurant } from './restaurant.model';
 @Component ({
   selector: 'restaurant-display',
   template: `
-    <div ng-init="restaurant.calculateAverageRating(); restaurant.setStarRating()">
+    <div ng-init="restaurant.calculateAverageRating(); restaurant.setStarRating(); restaurant.setDollarSigns()">
       <h3>{{ restaurant.name }}</h3>
       <p>Rating: {{ restaurant.starRating }}<p>
       <p>Cuisine: {{ restaurant.specialty }}<p>
       <p>Location: {{ restaurant.address }}<p>
-      <p>Cost: {{ restaurant.cost }}<p>
+      <p>Cost: {{ restaurant.costIcon }}<p>
     </div>
   `
 })

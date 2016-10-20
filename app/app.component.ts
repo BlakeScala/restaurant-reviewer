@@ -59,9 +59,7 @@ export class AppComponent {
     new Restaurant("Fuego Burrito", "Burritos", "Many Locations", 3, 3, "http://roaminghunger.com/img/trucks/original/5882/56b10981-7d64-4b3e-9c8a-4c5246204482.jpg")
   ];
 
-  allReviews: Review[] = [
-    new Review("Joe Pizza", 120, 2, "Absolute shit experience. Waited two hours, pizza came out burnt and cold with the wrong toppings. They forgot my breadsticks and drink and wouldn't take my coupon. Good atmosphere.", 0)
-  ];
+  allReviews: Review[] = [];
   allSpecialties: string[] = ["Pizza", "Thai", "Burritos"];
 
   selectedRestaurant: Restaurant = null;
@@ -75,10 +73,12 @@ export class AppComponent {
   }
 
   finishedEditing() {
+    this.selectedRestaurant.setDollarSigns();
     this.selectedRestaurant = null;
   }
 
   addRestaurant(newRestaurantFromChild: Restaurant) {
+    newRestaurantFromChild.setDollarSigns();
     this.allRestaurants.push(newRestaurantFromChild);
     this.showNewForm = false;
     if(this.allSpecialties.indexOf(newRestaurantFromChild.specialty) === -1) {
