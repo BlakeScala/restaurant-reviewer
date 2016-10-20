@@ -6,14 +6,14 @@ import { Review } from './review.model';
   selector: 'new-review',
   template: `
     <div *ngIf="show">
-      <h2>New Review</h2>
+      <h3>New Review</h3>
       <div class="form-group">
         <label for="reviewer">Your Name</label>
         <input #reviewer type="text" class="form-control">
       </div>
       <div class = "form-group">
         <label for="waitTime">Minutes until food arrived</label>
-        <input #waitTime type="text" class="form-control">
+        <input #waitTime type="number" class="form-control">
       </div>
       <div class = "form-group">
         <label for="rating">Rating(1-5)</label>
