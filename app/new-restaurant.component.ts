@@ -5,7 +5,7 @@ import { Review } from './review.model';
 @Component({
   selector: 'new-restaurant',
   template: `
-    <div *ngIf="show">
+    <div *ngIf="show" class="well">
       <h2>New Restaurant</h2>
       <div class="form-group">
         <label for="restaurantName">Restaurant Name</label>
@@ -33,7 +33,7 @@ import { Review } from './review.model';
         <label for="picture">Enter a picture URL</label>
         <input #picture type="text" class="form-control">
       </div>
-      <button class="btn btn-success" (click)="
+      <button class="btn" id="new-restaurant" (click)="
         addClicked(restaurantName.value, specialty.value, address.value, cost.value, childRestaurantList.length, picture.value);
         restaurantName.value='';
         specialty.value='';
@@ -54,7 +54,6 @@ export class NewRestaurantComponent {
       alert("Please fill out the entire form.");
     } else {
       var numCost: number = parseInt(cost);
-      // var image: string = "background-image: url(" + picture + ")";
       var newRestaurantToAdd: Restaurant = new Restaurant(name, specialty, address, numCost, id, picture);
       this.newRestaurantSender.emit(newRestaurantToAdd);
     }

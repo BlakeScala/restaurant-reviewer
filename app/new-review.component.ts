@@ -51,6 +51,7 @@ export class NewReviewComponent {
       var numWaitTime: number = parseInt(waitTime);
       var numRating: number = parseInt(rating);
       var reviewToAdd: Review = new Review(reviewer, numWaitTime, numRating, description, id);
+      reviewToAdd.setStarRating();
       this.clickSender.emit(reviewToAdd);
     }
   }

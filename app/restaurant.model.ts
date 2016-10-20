@@ -1,7 +1,7 @@
 export class Restaurant {
   public reviews: boolean = false;
   public starArray: string[] = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
-  public dollarArray: string[] = ["$", "$$", "$$$", "$$$$", "$$$$$"];
+  public dollarArray: string[] = [" $", " $ $", " $ $ $", " $ $ $ $", " $ $ $ $ $"];
   public ratingsArray: number[] = [];
   public averageRating: number = 0;
   public starRating: string = "No Ratings Yet";
@@ -11,15 +11,21 @@ export class Restaurant {
   calculateAverageRating() {
     console.log("This works");
     var ratingsSum: number = 0;
+    var roundRating: number = 0;
     for(var i = 0; i < this.ratingsArray.length; i++) {
       ratingsSum += this.ratingsArray[i];
     }
-    this.averageRating = ratingsSum / this.ratingsArray.length;
+    roundRating = ratingsSum / this.ratingsArray.length;
+    if(roundRating - Math.floor(roundRating) >= 0.5) {
+      this.averageRating = Math.ceil(roundRating);
+    } else {
+      this.averageRating = Math.floor(roundRating);
+    }
   }
 
   setStarRating() {
     for(var i = 0; i < this.starArray.length; i++) {
-      if(Math.floor(this.averageRating-1) == i) {
+      if(this.averageRating-1 == i) {
         this.starRating = this.starArray[i];
       }
     }

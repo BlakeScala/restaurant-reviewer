@@ -9,7 +9,7 @@ import { Restaurant } from './restaurant.model';
       <p>Rating: {{ restaurant.starRating }}<p>
       <p>Cuisine: {{ restaurant.specialty }}<p>
       <p>Location: {{ restaurant.address }}<p>
-      <p>Cost: {{ restaurant.costIcon }}<p>
+      <p>Cost: <span class="dollar">{{ restaurant.costIcon }}</span><p>
     </div>
   `
 })

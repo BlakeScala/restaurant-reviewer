@@ -4,11 +4,13 @@ import { Review } from './review.model';
 @Component ({
   selector: 'review-display',
   template: `
-  <h4>Reviewer: {{ review.reviewer }}</h4>
-  <p>Wait Time: {{ review.waitTime }} minutes</p>
-  <p>Rating: {{ review.rating }}</p>
-  <p>Comments: {{ review.description }}</p>
   <hr>
+  <div ng-init="review.setStarRating()">
+    <h4>Reviewer: {{ review.reviewer }}</h4>
+    <p>Wait Time: {{ review.waitTime }} minutes</p>
+    <p>Rating: {{ review.starRating }}</p>
+    <p>Comments: {{ review.description }}</p>
+  </div>
   `
 })
 

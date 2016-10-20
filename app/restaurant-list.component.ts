@@ -5,7 +5,8 @@ import { Review } from './review.model';
 @Component ({
   selector: 'restaurant-list',
   template: `
-    <div *ngFor = "let currentRestaurant of childRestaurantList | specialty:specialtyFilter | rating:ratingFilter | cost:costFilter" class="well">
+    <div *ngFor = "let currentRestaurant of childRestaurantList | specialty:specialtyFilter | rating:ratingFilter | cost:costFilter" class="well restaurant-list">
+      <img id="restaurant-image" class="img-responsive" [src]="currentRestaurant.picture">
       <restaurant-display
         [restaurant] = "currentRestaurant"
       ></restaurant-display>

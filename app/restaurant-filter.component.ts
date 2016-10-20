@@ -17,7 +17,7 @@ import { Review } from './review.model';
       <option value="3">At least 3 Stars</option>
       <option value="4">At least 4 Stars</option>
     </select>
-    <select (change) = "costChange($event.target.value)" class="form-control">
+    <select (change) = "costChange($event.target.value)" class="form-control dollar">
       <option value="1">$</option>
       <option value="2">$$</option>
       <option value="3">$$$</option>

@@ -11,7 +11,7 @@ export class CostPipe implements PipeTransform {
   transform(input: Restaurant[], desiredCost) {
     var output: Restaurant[] = [];
     for(var i = 0; i < input.length; i++) {
-      if(input[i].cost < desiredCost) {
+      if(input[i].cost <= desiredCost) {
         output.push(input[i]);
       }
     }

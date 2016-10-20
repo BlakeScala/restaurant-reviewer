@@ -33,13 +33,13 @@ import { Review } from './review.model';
         ></restaurant-list>
       </div>
       <div class="col-md-4 forms">
-        <button class="btn"(click)="showRestaurantForm()">Add Restaurant</button>
+        <button class="btn" id="add-restaurant"(click)="showRestaurantForm()">Add Restaurant</button>
+        <br><br>
         <new-restaurant
           [childRestaurantList] = "allRestaurants"
           [show] = "showNewForm"
           (newRestaurantSender) = "addRestaurant($event)"
         ></new-restaurant>
-        <br>
         <edit-restaurant
           [childSelectedRestaurant] = "selectedRestaurant"
           (clickSender) = "finishedEditing()"
@@ -52,7 +52,7 @@ import { Review } from './review.model';
 
 export class AppComponent {
   allRestaurants: Restaurant[] = [
-    new Restaurant("Joe's Pizza", "Pizza", "1234 N 15th", 2, 0, "background-image: url('https://s3-media3.fl.yelpcdn.com/bphoto/p3_DBtzBdy82bNB5iog7jQ/o.jpg')"),
+    new Restaurant("Joe's Pizza", "Pizza", "1234 N 15th", 2, 0, "https://s3-media3.fl.yelpcdn.com/bphoto/p3_DBtzBdy82bNB5iog7jQ/o.jpg"),
     new Restaurant("Augustine's Pizza", "Pizza", "132 Croton Ave.", 4, 1, "https://i.ytimg.com/vi/70R2DNL4EmQ/maxresdefault.jpg"),
     new Restaurant("Nong's Khao Man Gai", "Thai", "609 SE Ankeny St, Suite C", 4, 2,  "http://pica.org/wp-content/uploads/2012/09/TBA12_Nongs_960.jpg"),
     new Restaurant("Fuego Burrito", "Burritos", "Many Locations", 3, 3, "http://roaminghunger.com/img/trucks/original/5882/56b10981-7d64-4b3e-9c8a-4c5246204482.jpg")
