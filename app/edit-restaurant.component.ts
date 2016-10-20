@@ -20,19 +20,19 @@ import { Restaurant } from './restaurant.model';
       </div>
       <div class="form-group">
         <label for="cost">Cost</label>
-        <select [(ngModel)]="childSelectedRestaurant.cost">
-          <option value="1">$</option>
-          <option value="2">$$</option>
-          <option value="3">$$$</option>
-          <option value="4">$$$$</option>
-          <option value="5">$$$$$</option>
+        <select [(ngModel)]="childSelectedRestaurant.cost" class="form-control dollar">
+          <option value="1"> $</option>
+          <option value="2"> $ $</option>
+          <option value="3"> $ $ $</option>
+          <option value="4"> $ $ $ $</option>
+          <option value="5"> $ $ $ $ $</option>
         </select>
       </div>
       <div class="form-group">
         <label for="picture">Enter a picture URL</label>
         <input [(ngModel)]="childSelectedRestaurant.picture" type="text" class="form-control" value="null">
       </div>
-      <button (click)="editDone()">Done</button>
+      <button class="btn btn-danger"(click)="editDone()">Done</button>
     </div>
   `
 })

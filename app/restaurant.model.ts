@@ -1,7 +1,9 @@
 export class Restaurant {
   public reviews: boolean = false;
+  public starArray: string[] = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
   public ratingsArray: number[] = [];
   public averageRating: number = 0;
+  public starRating: string = "No Ratings Yet";
   constructor(public name: string, public specialty: string, public address: string, public cost: number, public id: number, public picture?: string) { }
 
   calculateAverageRating() {
@@ -11,5 +13,13 @@ export class Restaurant {
       ratingsSum += this.ratingsArray[i];
     }
     this.averageRating = ratingsSum / this.ratingsArray.length;
+  }
+
+  setStarRating() {
+    for(var i = 0; i < this.starArray.length; i++) {
+      if(Math.floor(this.averageRating-1) == i) {
+        this.starRating = this.starArray[i];
+      }
+    }
   }
 }

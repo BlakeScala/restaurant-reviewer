@@ -13,8 +13,8 @@ import { Review } from './review.model';
           ></review-display>
         </div>
       </div>
-      <button (click)="addReview(restaurant)">Add Review</button>
-      <button (click)="doneReview(restaurant)">Hide Reviews</button>
+      <button class="btn btn-success" (click)="addReview(restaurant)">Add Review</button>
+      <button class="btn btn-danger" (click)="doneReview(restaurant)">Hide Reviews</button>
     </div>
     <new-review
       [show] = "showReviewForm"
@@ -41,6 +41,7 @@ export class ReviewListComponent {
     this.restaurant.ratingsArray.push(review.rating);
     console.log(this.restaurant.ratingsArray);
     this.restaurant.calculateAverageRating();
+    this.restaurant.setStarRating();
   }
 
   doneReview(selectedRestaurant: Restaurant) {

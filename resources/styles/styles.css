@@ -1,3 +1,18 @@
-h1 {
-  color: blue;
+.jumbotron {
+  color: black;
+  h1 {
+    font-size: 600%;
+  }
+  .well {
+    text-align: center;
+  }
+}
+
+h2 {
+  color: crimson;
+}
+
+.dollar {
+  color: green;
+  text-shadow: 0 0 1px darkgreen;
 }

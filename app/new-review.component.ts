@@ -17,13 +17,19 @@ import { Review } from './review.model';
       </div>
       <div class = "form-group">
         <label for="rating">Rating(1-5)</label>
-        <input #rating type="text" class="form-control">
+        <select #rating class="form-control">
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
       </div>
       <div class = "form-group">
         <label for="description">Comments</label>
         <input #description type="text" class="form-control">
       </div>
-      <button (click)="addReview(reviewer.value, waitTime.value, rating.value, description.value, restaurant.id);
+      <button class="btn btn-danger" (click)="addReview(reviewer.value, waitTime.value, rating.value, description.value, restaurant.id);
         reviewer.value = '';
         waitTime.value = '';
         rating.value = '';
