@@ -8,15 +8,13 @@ import { Review } from './review.model';
   <div class="container">
     <div class="jumbotron">
       <div class = "row">
-        <div class = "col-md-2 well">
+        <div class = "col-md-2 well filter">
           <restaurant-filter
             [childSpecialtyList] = "allSpecialties"
             (specialtySender) = "selectSpecialty($event)"
             (ratingSender) = "selectRating($event)"
             (costSender) = "selectCost($event)"
           ></restaurant-filter>
-          <br>
-          <button class="btn btn-success"(click)="showRestaurantForm()">Add Restaurant</button>
         </div>
         <div class = "col-md-10">
           <h1>Restaurant Reviewer</h1>
@@ -24,7 +22,7 @@ import { Review } from './review.model';
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <restaurant-list
           [childRestaurantList] = "allRestaurants"
           [specialtyFilter] = "selectedSpecialty"
@@ -34,7 +32,8 @@ import { Review } from './review.model';
           (editButtonSender)= "showDetails($event)"
         ></restaurant-list>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4 forms">
+        <button class="btn"(click)="showRestaurantForm()">Add Restaurant</button>
         <new-restaurant
           [childRestaurantList] = "allRestaurants"
           [show] = "showNewForm"
@@ -70,6 +69,7 @@ export class AppComponent {
 
   showDetails(clickedRestaurant: Restaurant) {
     this.selectedRestaurant = clickedRestaurant;
+    this.showNewForm = false;
   }
 
   finishedEditing() {
@@ -100,6 +100,7 @@ export class AppComponent {
 
   showRestaurantForm() {
     this.showNewForm = true;
+    this.selectedRestaurant = null;
   }
 
 }

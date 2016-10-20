@@ -6,18 +6,18 @@ import { Review } from './review.model';
   selector: 'restaurant-filter',
   template: `
     <h3>Filters</h3>
-    <select (change) = "specialtyChange($event.target.value)" class="filter form-control">
+    <select (change) = "specialtyChange($event.target.value)" class="form-control">
       <option value="All">All</option>
       <option *ngFor ="let currentSpecialty of childSpecialtyList" [value]="currentSpecialty">{{ currentSpecialty }}</option>
     </select>
-    <select (change) = "ratingChange($event.target.value)" class="filter form-control">
+    <select (change) = "ratingChange($event.target.value)" class="form-control">
       <option value="0">No preference</option>
       <option value="1">At least 1 Star</option>
       <option value="2">At least 2 Stars</option>
       <option value="3">At least 3 Stars</option>
       <option value="4">At least 4 Stars</option>
     </select>
-    <select (change) = "costChange($event.target.value)" class="filter form-control">
+    <select (change) = "costChange($event.target.value)" class="form-control">
       <option value="1">$</option>
       <option value="2">$$</option>
       <option value="3">$$$</option>

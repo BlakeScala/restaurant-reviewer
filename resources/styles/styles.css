@@ -1,6 +1,10 @@
 .jumbotron {
   color: black;
+  background-image: url("../../resources/images/jumbotron.jpg");
+  background-size: cover;
+  background-position: center;
   h1 {
+    text-shadow: 2px 2px white;
     font-size: 600%;
   }
   .well {
@@ -10,6 +14,22 @@
 
 h2 {
   color: crimson;
+}
+
+.forms {
+  text-align: center;
+}
+
+.filter {
+  background-color: rgba(173, 172, 171, 0.6);
+}
+
+new-restaurant {
+  text-align: left;
+}
+
+edit-restaurant {
+  text-align: left;
 }
 
 .dollar {
